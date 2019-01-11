@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Dao.I2Mapper">
+   <delete id="delete" >
+   delete  from ii where id1=#{id}
+   </delete>
+   <select id="select2" resultType="com.example.demo.entity.Ii">
+   select  * from ii where id1=#{id}
+   </select>
+   <insert id="insert" parameterType="com.example.demo.entity.Tabletmp"  >  
+	INSERT INTO [test].[dbo].[tabletmp]
+           ([acolumn]
+           ,[tiltle]
+           ,[acontent]
+           ,[author]
+           ,[subtitle]
+           ,[titlehref]
+           ,[source]
+           ,[people]
+           ,[draft]
+           ,[Abstract]
+           ,[releasedate]
+           ,[image])
+     VALUES
+     (#{acloumn}, #{title}, #{acontent}, #{author}
+         , #{subtitle}, #{titlehref}, #{source}, #{people}
+         , #{draft}, #{Abstract}, #{releasedate}, #{image})
+    <!-- <foreach collection ="list" item="Tabletmp" separator =","> 
+         (#{Tabletmp.acloumn}, #{Tabletmp.title}, #{Tabletmp.acontent}, #{Tabletmp.author}
+         , #{Tabletmp.subtitle}, #{Tabletmp.titlehref}, #{Tabletmp.source}, #{Tabletmp.people}
+         , #{Tabletmp.draft}, #{Tabletmp.Abstract}, #{Tabletmp.releasedate}, #{Tabletmp.image})
+     </foreach > --> 
+  
+   </insert>
+
+   <update id="updateMnoticeconfig" parameterType="com.example.demo.entity.Mnoticeconfig">
+    update  dbo.m_notice_config
+	set acontent=#{acontent}
+	where rpt_path=#{rptPath}
+   </update>
+</mapper>
