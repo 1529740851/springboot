@@ -186,7 +186,7 @@ public class ExclUtil2 {
 	    }
 	    
 	public static void main(String[] args) throws Exception{
-	    	System.out.println(2<<3);
+	    //	System.out.println(2<<3);
 	    	ExclUtil2 excelReader = new ExclUtil2();
 	        try {
 	            // 对读取Excel表格内容测试
