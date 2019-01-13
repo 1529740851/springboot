@@ -38,7 +38,7 @@ public class ExclUtil {
 			String fileVersion = "";
 			if(fileName.endsWith(".xlsx")){
 				fileVersion = "2007";
-			}else if(fileName.endsWith(".xlsx")){
+			}else if(fileName.endsWith(".xls")){
 				fileVersion = "2003";
 			}
 			fin = new FileInputStream(new File(fileName));
