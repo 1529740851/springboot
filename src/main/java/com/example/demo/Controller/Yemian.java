@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.Service.IiService;
 import com.example.demo.entity.Ii;
-import com.example.demo.entity.Note;
+
 
 
 @Controller

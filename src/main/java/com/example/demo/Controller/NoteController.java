@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.demo.entity.Note;
+import com.example.demo.Util.Note;
+
 
 @Controller
 @RequestMapping("/note")
