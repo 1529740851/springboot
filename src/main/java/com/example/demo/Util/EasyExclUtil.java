@@ -32,7 +32,7 @@ public class EasyExclUtil {
 	 public static void main(String[] args) {
 			//System.out.println(DateUtil.DoubletoDate(43418.399537037039,"yyyy-MM-dd HH:mm:ss"));
 		 		try {
-		 			writeWithoutHead();
+		 			writestudent();
 		 	} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
