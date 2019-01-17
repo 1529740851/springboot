@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+	<div id="myView">
+　　　　<ol>
+	<!--　<li >{{list}}</li> -->　
+　　　　<li v-for="student in list">{{student.name}}</li> 
+　　　　</ol>
+　　</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	
+/*	var myModel = {studentList:[{name:'小明'},{name:'小红'},{name:'小刚'}]};
+	var myViewModel1 = new Vue({
+　　	el:'#myView',
+　　data:myModel
+	});*/
+	var myViewMode=new Vue({
+		el:"#myView",
+		data:{
+			list:[]
+		},
+		mounted () {
+		axios({
+		    method: 'get',
+		    url: '/stu/getStudent' 
+			})
+			.then((response)=> {
+				var rs=response.data;
+				this.list=rs;
+			});
+	 }});
+	
+	
+</script>
