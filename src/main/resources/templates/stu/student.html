@@ -9,21 +9,19 @@
 </head>
 <body>
 	<div id="myView">
+	<table v-for="student in list">
+		<td>{{student.id}}</td>
+		<td>{{student.name}}</td>
+		<td>{{student.age}}</td>
+	</table>
 　　　　<ol>
 	<!--　<li >{{list}}</li> -->　
-　　　　<li v-for="student in list">{{student.name}}</li> 
 　　　　</ol>
 　　</div>
 </body>
 </html>
 
 <script type="text/javascript">
-	
-/*	var myModel = {studentList:[{name:'小明'},{name:'小红'},{name:'小刚'}]};
-	var myViewModel1 = new Vue({
-　　	el:'#myView',
-　　data:myModel
-	});*/
 	var myViewMode=new Vue({
 		el:"#myView",
 		data:{
