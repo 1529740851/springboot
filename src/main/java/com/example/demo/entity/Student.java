@@ -1,6 +1,9 @@
 package com.example.demo.entity;
 
-public class Student {
+import com.alibaba.excel.annotation.ExcelProperty;
+import com.alibaba.excel.metadata.BaseRowModel;
+
+public class Student extends BaseRowModel {
 	public Student(){
 		
 	}
@@ -9,10 +12,13 @@ public class Student {
 		this.name=name;
 		this.age=age;
 	}
+	
 	private int id;
 	
+	@ExcelProperty(value = "姓名", index = 0)
 	private String name;
 	
+	@ExcelProperty(value = "年龄", index = 1)
 	private int age;
 
 	public int getId() {

@@ -13,6 +13,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.junit.Test;
 
@@ -20,18 +21,25 @@ import com.alibaba.excel.ExcelReader;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.metadata.Sheet;
 import com.alibaba.excel.metadata.Table;
+import com.alibaba.excel.metadata.TableStyle;
 import com.alibaba.excel.read.context.AnalysisContext;
 import com.alibaba.excel.read.event.AnalysisEventListener;
 import com.alibaba.excel.support.ExcelTypeEnum;
+import com.example.demo.entity.Student;
 
 public class EasyExclUtil {
 	
 	 public static void main(String[] args) {
 			//System.out.println(DateUtil.DoubletoDate(43418.399537037039,"yyyy-MM-dd HH:mm:ss"));
-	        long act = System.currentTimeMillis();
-	       
+		 		try {
+		 			writeWithoutHead();
+		 	} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		 	}		
+		 		long act = System.currentTimeMillis();	 		
 	    		String filepath="E:\\shuju\\shuju.xlsx";
-			  List<String> sheetContent;
+	    		List<String> sheetContent;
 				sheetContent = read(filepath);
 
 		        System.out.println("一共"+sheetContent.size()+"有效数据");
@@ -92,15 +100,15 @@ public class EasyExclUtil {
 	    }
 
 	 
-	 
+	 //有表头
 	 @Test
-     public void writeWithoutHead() throws IOException {
-        try (OutputStream out = new FileOutputStream("E://withHead.xlsx");) {
+	 public static void writeWithoutHead() throws IOException {
+        try (OutputStream out = new FileOutputStream("E://withHead3.xlsx");) {
            ExcelWriter writer = new ExcelWriter(out, ExcelTypeEnum.XLSX);
            Sheet sheet1 = new Sheet(1, 0);
            sheet1.setSheetName("sheet1");
            List<List<String>> data = new ArrayList<>();
-           for (int i = 0; i < 100; i++) {
+           for (int i = 0; i < 50; i++) {
               List<String> item = new ArrayList<>();
               item.add("item0" + i);
               item.add("item1" + i);
@@ -119,8 +127,53 @@ public class EasyExclUtil {
            head.add(headCoulumn3);
            Table table = new Table(1);
            table.setHead(head);
+        
+          // TableStyle tableStyle= new TableStyle();
+          // tableStyle.setTableHeadBackGroundColor(IndexedColors.RED);
+          // tableStyle.setTableContentBackGroundColor(IndexedColors.WHITE);
+           //table.setTableStyle(tableStyle);
+           
            writer.write0(data, sheet1, table);
            writer.finish();
         }
      }
+	 
+	 //无表头
+	 public static void wubiaotou() throws FileNotFoundException, IOException{
+		 try (OutputStream out = new FileOutputStream("withoutHead.xlsx");) {
+	         ExcelWriter writer = new ExcelWriter(out, ExcelTypeEnum.XLSX, false);
+	         Sheet sheet1 = new Sheet(1, 0);
+	         sheet1.setSheetName("sheet1");
+	         List<List<String>> data = new ArrayList<>();
+	         for (int i = 0; i < 100; i++) {
+	            List<String> item = new ArrayList<>();
+	            item.add("item0" + i);
+	            item.add("item1" + i);
+	            item.add("item2" + i);
+	            data.add(item);
+	         }
+	         writer.write0(data, sheet1);
+	         writer.finish();
+	      }
+
+		 
+	 }
+	 
+	 //根据表写入数据
+	 public static void writestudent() throws IOException {
+	      try (OutputStream out = new FileOutputStream("E://student.xlsx");) {
+	         ExcelWriter writer = new ExcelWriter(out, ExcelTypeEnum.XLSX);
+	         Sheet sheet1 = new Sheet(1, 0, Student.class);
+	         sheet1.setSheetName("sheet1");
+	         List<Student> data = new ArrayList<>();
+	         for (int i = 0; i < 100; i++) {
+	            Student item = new Student();
+	            item.setName( "name" + i); 
+	            item.setAge(i);      
+	            data.add(item);
+	         }
+	         writer.write(data, sheet1);
+	         writer.finish();
+	      }
+	 }
 }
