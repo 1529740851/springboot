@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.demo.Service.StudentService;
 import com.example.demo.entity.Student;
 
+
+//Vue.jsdemo
 @Controller
 @RequestMapping("/stu")
 public class StudentController {
@@ -26,6 +28,11 @@ public class StudentController {
 	@ResponseBody
 	public List<Student> getStudent(){
 		return stuService.getStudents();
+	}
+	
+	@RequestMapping("/Vuedemo")
+	public String vue(){
+		return "stu/Vuedemo";
 	}
 
 }

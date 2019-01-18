@@ -3,6 +3,7 @@ package com.example.demo.entity;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.metadata.BaseRowModel;
 
+//EasyExcl导出数据
 public class Student extends BaseRowModel {
 	public Student(){
 		

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.Util.Note;
 
-
+//读取配置文件demo
 @Controller
 @RequestMapping("/note")
 public class NoteController {

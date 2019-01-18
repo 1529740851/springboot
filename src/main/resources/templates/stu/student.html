@@ -8,6 +8,7 @@
 
 </head>
 <body>
+	<!-- for循环 -->
 	<div id="myView">
 	<table v-for="student in list">
 		<td>{{student.id}}</td>
@@ -15,13 +16,52 @@
 		<td>{{student.age}}</td>
 	</table>
 　　　　<ol>
-	<!--　<li >{{list}}</li> -->　
 　　　　</ol>
 　　</div>
+
+	<!-- 双向绑定 加if else -->
+	<!-- on=@符号  bing=:符号  -->
+	<div id="app">
+    <p>{{ message }}</p>
+    <p v-if="age<25">{{ age }}</p>
+    <p v-else>{{ name }}</p>
+    <input type="text" v-model="message"/>
+    <button @click="greet">Greet</button>
+ <!--   <ul class="pagination">
+     <li v-for="n in pageCount">
+          <a href="javascripit:void(0)" v-bind:class="activeNumber === n  ? 'active' : ''">{{ n  }}</a>
+      </li>
+    </ul>-->
+	</div>
+	
+          
+      
 </body>
 </html>
 
 <script type="text/javascript">
+	var exampleData = {
+        message: 'Hello World!',
+        age:28,
+        name:'小明',
+        activeNumber: 1,
+        pageCount: 10
+    }
+
+    // 创建一个 Vue 实例或 "ViewModel"
+    // 它连接 View 与 Model
+    new Vue({
+        el: '#app',
+        data: exampleData,
+        methods: {
+            greet: function() {
+                alert(this.message)
+            }
+        }
+        
+    })
+
+
 	var myViewMode=new Vue({
 		el:"#myView",
 		data:{
