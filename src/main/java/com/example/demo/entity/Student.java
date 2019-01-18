@@ -15,11 +15,11 @@ public class Student extends BaseRowModel {
 	}
 	
 	private int id;
-	 @ExcelProperty(value = {"学生","学生","姓名"},index = 0)//合并单元格
+	 @ExcelProperty(value = {"学生表","姓名"},index = 0)//合并单元格
 	//@ExcelProperty(value = "姓名", index = 0)
 	private String name;
 	
-	 @ExcelProperty(value = {"学生","学生","年龄"},index = 0)//合并单元格
+	 @ExcelProperty(value = {"学生表","年龄"},index = 0)//合并单元格
 	//@ExcelProperty(value = "年龄", index = 1)
 	private int age;
 
