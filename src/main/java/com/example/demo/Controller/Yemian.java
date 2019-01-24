@@ -1,22 +1,13 @@
 package com.example.demo.Controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
-import java.util.Date;
+
 import java.util.Map;
-
-
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
-import javax.servlet.ServletRequest;
-
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import com.example.demo.Service.IiService;
 import com.example.demo.entity.Ii;
@@ -42,7 +33,7 @@ public class Yemian {
 		 //map.put("Ii",service.Select());
 		// System.out.println("xxx22222");
 		// service.Select2();		
-		   service.insert2();
+		 // service.insert2();
 	        return "index";
 	    }
 	 
