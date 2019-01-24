@@ -32,7 +32,7 @@ public class Yemian {
 	 	public String index(Map<String,Object> map) {
 		 //map.put("Ii",service.Select());
 		// System.out.println("xxx22222");
-		 service.Select();		
+	 		service.Select();		
 		 // service.insert2();
 	        return "index";
 	    }
