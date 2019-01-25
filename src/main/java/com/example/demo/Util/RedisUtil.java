@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ import org.springframework.util.CollectionUtils;
 public class RedisUtil {
 	
 	@Autowired
-	private RedisTemplate<String, Object> redisTemplate;  
+	private RedisTemplate<Object, Object> redisTemplate;  
 
    
     /** 
@@ -524,6 +525,6 @@ public class RedisUtil {
             return 0;  
         }  
     }  
-
+   
 
 }
