@@ -43,29 +43,26 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 		<!-- boot admin控制台 -->
-	<!--  	<dependency>
-			<groupId>de.codecentric</groupId>
-			<artifactId>spring-boot-admin-starter-client</artifactId>
-			<version>2.0.0</version>
+		<!-- <dependency> <groupId>de.codecentric</groupId> <artifactId>spring-boot-admin-starter-client</artifactId> 
+			<version>2.0.0</version> </dependency> <dependency> <groupId>de.codecentric</groupId> 
+			<artifactId>spring-boot-admin-server</artifactId> <version>2.0.0</version> 
+			</dependency> <dependency> <groupId>de.codecentric</groupId> <artifactId>spring-boot-admin-server-ui</artifactId> 
+			<version>2.0.0</version> </dependency> -->
+		
+		<!-- redis -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.codecentric</groupId>
-			<artifactId>spring-boot-admin-server</artifactId>
-			<version>2.0.0</version>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
 		</dependency>
+		<!--消息中间件包 rabbitq-->
 		<dependency>
-			<groupId>de.codecentric</groupId>
-			<artifactId>spring-boot-admin-server-ui</artifactId>
-			<version>2.0.0</version>
-		</dependency>-->
-		<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-redis</artifactId>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
-		<dependency>
-    <groupId>redis.clients</groupId>
-    <artifactId>jedis</artifactId>
-    </dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
