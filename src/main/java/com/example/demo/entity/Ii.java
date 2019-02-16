@@ -10,7 +10,9 @@ public class Ii implements Serializable {
 	private String id1;
 	private String id2;
 	private String id3;
-
+	public Ii(){
+		
+	}
 	public Ii(String id1, String id2, String id3) {
 		super();
 		this.id1 = id1;

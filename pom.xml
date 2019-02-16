@@ -37,6 +37,11 @@
 			<artifactId>easyexcel</artifactId>
 			<version>1.0.4</version>
 		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.41</version>
+		</dependency>
 		<!-- boot邮件发送 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -48,7 +53,7 @@
 			<artifactId>spring-boot-admin-server</artifactId> <version>2.0.0</version> 
 			</dependency> <dependency> <groupId>de.codecentric</groupId> <artifactId>spring-boot-admin-server-ui</artifactId> 
 			<version>2.0.0</version> </dependency> -->
-		
+
 		<!-- redis -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -58,10 +63,10 @@
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 		</dependency>
-		<!--消息中间件包 rabbitq-->
+		<!--消息中间件包 rabbitq -->
 		<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-amqp</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
