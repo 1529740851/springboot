@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
+import com.example.demo.Util.RedisConfig;
 import com.example.demo.Util.RedisUtil;
 
 @RunWith(SpringRunner.class)
@@ -26,6 +26,7 @@ public class RedisTest {
 		System.out.println(redisUtil.get("xx"));
 	}
 	
+	//Ìí¼Ó¶©µ¥ºÅ
 	@Test
 	public void indexTest(){
 		String name="reg";
