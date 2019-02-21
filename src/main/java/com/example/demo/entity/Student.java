@@ -3,31 +3,31 @@ package com.example.demo.entity;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.metadata.BaseRowModel;
 
-//EasyExcl导出数据
+//EasyExcl瀵煎嚭鏁版嵁
 public class Student extends BaseRowModel {
 	public Student(){
 		
 	}
-	public Student(int id,String name,int age){
+	public Student(Integer id,String name,Integer age){
 		this.id=id;
 		this.name=name;
 		this.age=age;
 	}
 	
-	private int id;
-	 @ExcelProperty(value = {"学生表","姓名"},index = 0)//合并单元格
-	//@ExcelProperty(value = "姓名", index = 0)
+	private Integer id;
+	 @ExcelProperty(value = {"瀛︾敓琛�","濮撳悕"},index = 0)//鍚堝苟鍗曞厓鏍�
+	//@ExcelProperty(value = "濮撳悕", index = 0)
 	private String name;
 	
-	 @ExcelProperty(value = {"学生表","年龄"},index = 0)//合并单元格
-	//@ExcelProperty(value = "年龄", index = 1)
-	private int age;
+	 @ExcelProperty(value = {"瀛︾敓琛�","骞撮緞"},index = 0)//鍚堝苟鍗曞厓鏍�
+	//@ExcelProperty(value = "骞撮緞", index = 1)
+	private Integer age;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
