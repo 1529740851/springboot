@@ -39,6 +39,18 @@ public class StudentController {
 	public List<Student> getStudent(){
 		return stuService.getStudents();
 	}
+	/**
+	 * 保存定时任务
+	 */
+
+	@RequestMapping("/save")	
+	public void save1(){
+		Student s=new Student();
+		s.setAge(23);
+		s.setName("小");
+		stuService.save(s);
+	
+	}
 	
 	@RequestMapping("/Vuedemo")
 	public String vue(){

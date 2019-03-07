@@ -2,8 +2,12 @@ package com.example.demo.entity;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.metadata.BaseRowModel;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 
 //EasyExcl瀵煎嚭鏁版嵁
+@TableName(value = "Student")
 public class Student extends BaseRowModel {
 	public Student(){
 		
@@ -13,7 +17,7 @@ public class Student extends BaseRowModel {
 		this.name=name;
 		this.age=age;
 	}
-	
+	@TableId(value = "id",type = IdType.AUTO)
 	private Integer id;
 	 @ExcelProperty(value = {"瀛︾敓琛�","濮撳悕"},index = 0)//鍚堝苟鍗曞厓鏍�
 	//@ExcelProperty(value = "濮撳悕", index = 0)

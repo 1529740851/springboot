@@ -2,11 +2,16 @@ package com.example.demo.entity;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotBlank;
+
+
 import lombok.Data;
 
 public class Ii implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	@NotBlank(message="不能为null")
 	private String id1;
 	private String id2;
 	private String id3;
