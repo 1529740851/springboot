@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.Util.RedisConfig;
 import com.example.demo.Util.RedisUtil;
 
 @RunWith(SpringRunner.class)
@@ -34,6 +33,7 @@ public class RedisTest {
         String format = simpleDateFormat.format(new Date());
         String key = name+format;
         Long num = redisUtil.incr(key,1L);
+        System.out.println("xx");
         System.out.println(num);
 	}
 
