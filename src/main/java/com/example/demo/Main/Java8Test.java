@@ -1,6 +1,7 @@
 package com.example.demo.Main;
 
 import java.util.ArrayList;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -8,6 +9,9 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import org.springframework.validation.annotation.Validated;
+
+import com.example.demo.entity.Ii;
 import com.example.demo.entity.Student;
 
 public class Java8Test {
@@ -31,11 +35,15 @@ public class Java8Test {
 		
 		//分组成map
 		Map<String, List<Student>> groupBy = stus.stream().collect(Collectors.groupingBy(Student::getName));
+		
+		
 		//去重
 		List<Student> stus3=stus.stream().filter(distinctByKey(o -> o.getAge())).collect(Collectors.toList());
-
-	
-
+		
+		
+		//获取所有最大值，最小值，平均值，合值
+		IntSummaryStatistics  stats = stus.stream().mapToInt((x) -> x.getAge()).summaryStatistics();
+		System.out.println(stats.getMax());
 
 		for (int i = 0; i < stus3.size(); i++) {
 			System.out.println(stus3.get(i).getName());
@@ -49,4 +57,9 @@ public class Java8Test {
 	}
 	
 
+	@org.junit.Test
+	public void Test(@Validated Ii i){
+		i.setId1(null);
+	}
+	
 }
