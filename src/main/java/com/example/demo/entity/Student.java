@@ -5,6 +5,7 @@ import com.alibaba.excel.metadata.BaseRowModel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.demo.Annotation.Exceld;
 
 //EasyExcl学生表
 @TableName(value = "Student")
@@ -19,10 +20,13 @@ public class Student extends BaseRowModel {
 	}
 	@TableId(value = "id",type = IdType.AUTO)
 	private Integer id;
+	
+	@Exceld(name="姓名")
 	 @ExcelProperty(value = {"学生表","姓名"},index = 0)//鍚堝苟鍗曞厓鏍�
 	//@ExcelProperty(value = "濮撳悕", index = 0)
 	private String name;
 	
+	@Exceld(name="年龄")
 	 @ExcelProperty(value = {"学生表","姓名"},index = 0)//鍚堝苟鍗曞厓鏍�
 	//@ExcelProperty(value = "骞撮緞", index = 1)
 	private Integer age;
