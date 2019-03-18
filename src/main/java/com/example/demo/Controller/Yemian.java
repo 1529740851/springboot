@@ -33,7 +33,7 @@ public class Yemian {
 		 //map.put("Ii",service.Select());
 		// System.out.println("xxx22222");
 	 		service.Select();		
-		 // service.insert2();
+		//  service.insert2();
 	        return "index";
 	    }
 	 
@@ -43,7 +43,7 @@ public class Yemian {
 		 return "index";
 	 }
 	     /*
-		 * Optional<String> 鍙傛暟鍙紶鍙笉浼�
+		 * Optional<String> 参数可传可不传
 		 * */
 		@RequestMapping("/insert")
 		public  String  insert( Ii i,String  userName){
