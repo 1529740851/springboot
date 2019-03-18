@@ -6,15 +6,16 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import com.example.demo.Annotation.Excel;
 import com.example.demo.entity.Student;
 
 public class ReflexMain {
 	
 	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
-		Student stu=new Student(1,"小明",33);
-		Student stu1=new Student(2,"笑话",22);
-		Student stu2=new Student(3,"无语",33);
-		Student stu3=new Student(4,"小明",24);
+		Student stu=new Student(1,"12",33);
+		Student stu1=new Student(2,"13",22);
+		Student stu2=new Student(3,"14",33);
+		Student stu3=new Student(4,"15",24);
 		List<Student> stus=new ArrayList<Student>();
 		stus.add(stu);
 		stus.add(stu1);
@@ -32,6 +33,8 @@ public class ReflexMain {
 			for (Field field : obj.getClass().getDeclaredFields()) {
 				field.setAccessible(true);
 				Object Value = field.get(obj);
+				Excel e= field.getAnnotation(Excel.class);
+				System.out.println(e==null?"":e.name());
 				if(Value !=null){
 					if(field.getType()==String.class){
 						System.out.println("String"+(String)Value);
