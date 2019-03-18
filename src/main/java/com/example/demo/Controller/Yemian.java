@@ -43,7 +43,7 @@ public class Yemian {
 		 return "index";
 	 }
 	     /*
-		 * Optional<String> 参数可传可不传
+		 * Optional<String> 鍙傛暟鍙紶鍙笉浼�
 		 * */
 		@RequestMapping("/insert")
 		public  String  insert( Ii i,String  userName){
