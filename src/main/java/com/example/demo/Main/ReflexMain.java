@@ -1,10 +1,16 @@
 package com.example.demo.Main;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.springframework.core.io.ClassPathResource;
 
 import com.example.demo.Annotation.Exceld;
 import com.example.demo.entity.Student;
@@ -14,7 +20,7 @@ public class ReflexMain {
 	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
 		Student stu=new Student(1,"张三",33);
 		Student stu1=new Student(2,"李四",22);
-		Student stu2=new Student(3,"王五",33);
+		Student stu2=new Student(3,null,33);
 		Student stu3=new Student(4,"孙六",24);
 		List<Student> stus=new ArrayList<Student>();
 		stus.add(stu);
@@ -22,6 +28,16 @@ public class ReflexMain {
 		stus.add(stu2);
 		stus.add(stu3);
 		getField(stus,Student.class);
+	}
+	
+	public static HSSFWorkbook oupt() throws Exception{
+		  HSSFWorkbook workbook1 = new HSSFWorkbook();// 新建一个Excel的工作空间
+          ClassPathResource cpr = new ClassPathResource("/statics/excel/fgw_kgdq.xls");
+          InputStream inputStream = cpr.getInputStream();
+          HSSFWorkbook hSSFWorkbook  = new HSSFWorkbook(inputStream);
+          HSSFSheet mbljSheet = hSSFWorkbook.getSheetAt(0);
+          workbook1 = hSSFWorkbook;// 把模板复制到新建的Excel
+          return workbook1;
 	}
 	
 	public static void getField(List<?> list,Class classs ) throws IllegalArgumentException, IllegalAccessException{
@@ -40,8 +56,8 @@ public class ReflexMain {
 				if(e==null){
 					continue;
 				}
-				Object Value = field.get(obj);				
-				if(Value !=null){
+					Object Value = field.get(obj);				
+					Value=Value==null?"":Value;
 					if(field.getType()==String.class){
 						System.out.println("String"+Value);
 					}
@@ -51,7 +67,7 @@ public class ReflexMain {
 					if(field.getType()==Date.class){
 						System.out.println("String"+(Date)Value);
 					}
-				}
+				
 			}
 		}
 	}
