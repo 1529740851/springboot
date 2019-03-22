@@ -19,6 +19,7 @@ import com.alibaba.excel.metadata.Sheet;
 import com.alibaba.excel.support.ExcelTypeEnum;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.demo.Service.StudentService;
+import com.example.demo.Util.Query;
 import com.example.demo.entity.Student;
 
 
@@ -51,6 +52,7 @@ public class StudentController {
 		s.setName("小");
 		stuService.save(s);
 		stuService.list(new QueryWrapper<Student>().eq(true, "name", "小"));
+		stuService.page(new Query<Student>(null).getPage(), new QueryWrapper<Student>());
 	}
 	
 	@RequestMapping("/Vuedemo")
