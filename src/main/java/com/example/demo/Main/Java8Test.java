@@ -11,42 +11,42 @@ import java.util.stream.Collectors;
 import com.example.demo.entity.Student;
 
 public class Java8Test {
-	
+
 	public static void main(String[] args) {
-		//Lambda±í´ïÊ½
+		//Lambdaè¡¨è¾¾å¼
 		new Thread(() -> System.out.println("hello world")).start();
-		
-		
-		Student stu=new Student(1,"Ğ¡Ã÷",33);
-		Student stu1=new Student(2,"Ğ¦»°",22);
-		Student stu2=new Student(3,"ÎŞÓï",33);
-		Student stu3=new Student(4,"Ğ¡Ã÷",24);
+
+
+		Student stu=new Student(1,"å°æ˜",33);
+		Student stu1=new Student(2,"ç¬‘è¯",22);
+		Student stu2=new Student(3,"æ— è¯­",33);
+		Student stu3=new Student(4,"å°æ˜",24);
 		List<Student> stus=new ArrayList<Student>();
 		stus.add(stu);
 		stus.add(stu1);
 		stus.add(stu2);
 		stus.add(stu3);
-		 //¹ıÂË
+		//è¿‡æ»¤
 		List<Student> stus2=stus.stream().filter(student -> student.getAge()==33).collect(Collectors.toList());
-		
-		//·Ö×é³Émap
+
+		//åˆ†ç»„æˆmap
 		Map<String, List<Student>> groupBy = stus.stream().collect(Collectors.groupingBy(Student::getName));
-		//È¥ÖØ
+		//å»é‡
 		List<Student> stus3=stus.stream().filter(distinctByKey(o -> o.getAge())).collect(Collectors.toList());
 
-	
+
 
 
 		for (int i = 0; i < stus3.size(); i++) {
 			System.out.println(stus3.get(i).getName());
-			
+
 		}
 	}
 	public static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor) {
-	    Map<Object, Boolean> seen = new ConcurrentHashMap<>();
-	    return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+		Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+		return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
 
 	}
-	
+
 
 }
