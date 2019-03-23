@@ -14,27 +14,27 @@ import com.example.demo.Util.RedisUtil;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RedisTest {
-	
+
 	@Autowired
 	private RedisUtil redisUtil;
-	
+
 	@Test
-    public void test() throws Exception {		
+	public void test() throws Exception {
 		System.out.println("xxx");
 		redisUtil.set("xx", "11");
 		System.out.println(redisUtil.get("xx"));
 	}
-	
-	//ÃÌº”∂©µ•∫≈
+
+	//Ê∑ªÂä†ËÆ¢ÂçïÂè∑
 	@Test
 	public void indexTest(){
 		String name="reg";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
-        String format = simpleDateFormat.format(new Date());
-        String key = name+format;
-        Long num = redisUtil.incr(key,1L);
-        System.out.println("xx");
-        System.out.println(num);
+		String format = simpleDateFormat.format(new Date());
+		String key = name+format;
+		Long num = redisUtil.incr(key,1L);
+		System.out.println("xx");
+		System.out.println(num);
 	}
 
 }
