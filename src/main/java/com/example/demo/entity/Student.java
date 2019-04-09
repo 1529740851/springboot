@@ -35,6 +35,7 @@ public class Student extends BaseRowModel {
 	private Integer age;
 
 	//此字段表没有
+	//@Exceld(name="生日")
 	@TableField(exist = false)
 	private Date date;
 	
@@ -61,5 +62,11 @@ public class Student extends BaseRowModel {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
 }

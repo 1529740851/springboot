@@ -22,12 +22,13 @@ public class ReflexMain {
 		Student stu1=new Student(2,"李四",22);
 		Student stu2=new Student(3,null,33);
 		Student stu3=new Student(4,"孙六",24);
+		stu.setDate(new Date());
 		List<Student> stus=new ArrayList<Student>();
 		stus.add(stu);
 		stus.add(stu1);
 		stus.add(stu2);
 		stus.add(stu3);
-		getField(stus,Student.class);
+		getField(stus);
 	}
 	
 	public static HSSFWorkbook oupt() throws Exception{
@@ -40,12 +41,12 @@ public class ReflexMain {
           return workbook1;
 	}
 	
-	public static void getField(List<?> list,Class classs ) throws IllegalArgumentException, IllegalAccessException{
+	public static void getField(List<?> list) throws IllegalArgumentException, IllegalAccessException{
 		/*Class<?> entityClass = list.get(0).getClass();
 		entityClass.getAnnotations();*/
 		List<List<Object>> objlist=new ArrayList<>();
 		List<Object> obj0 =new ArrayList<>();
-		for(Field field : classs.getDeclaredFields()){
+		for(Field field : list.get(0).getClass().getDeclaredFields()){
 			Exceld e=field.getAnnotation(Exceld.class);
 			obj0.add(e==null?"":e.name());
 		}
@@ -60,9 +61,9 @@ public class ReflexMain {
 				if(e==null){
 					continue;
 				}
-					Object Value = field.get(obj);				
-					Value=Value==null?"":Value;
-					obj1.add(Value);
+				Object Value = field.get(obj);				
+				Value=Value==null?"":Value;
+				obj1.add(Value);
 					/*if(field.getType()==String.class){
 						System.out.println("String"+Value);
 					}
