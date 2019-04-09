@@ -1,8 +1,11 @@
 package com.example.demo.entity;
 
+import java.util.Date;
+
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.metadata.BaseRowModel;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.example.demo.Annotation.Exceld;
@@ -31,6 +34,10 @@ public class Student extends BaseRowModel {
 	//@ExcelProperty(value = "骞撮緞", index = 1)
 	private Integer age;
 
+	//此字段表没有
+	@TableField(exist = false)
+	private Date date;
+	
 	public Integer getId() {
 		return id;
 	}
