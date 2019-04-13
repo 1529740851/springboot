@@ -21,12 +21,13 @@ public class ReflexMain {
 		Student stu1=new Student(2,"李四",22);
 		Student stu2=new Student(3,null,33);
 		Student stu3=new Student(4,"孙六",24);
+		stu.setDate(new Date());
 		List<Student> stus=new ArrayList<Student>();
 		stus.add(stu);
 		stus.add(stu1);
 		stus.add(stu2);
 		stus.add(stu3);
-		getField(stus,Student.class);
+		getField(stus);
 	}
 	
 	public static HSSFWorkbook oupt() throws Exception{
@@ -39,25 +40,30 @@ public class ReflexMain {
           return workbook1;
 	}
 	
-	public static void getField(List<?> list,Class classs ) throws IllegalArgumentException, IllegalAccessException{
-		Class<?> entityClass = list.get(0).getClass();
-		entityClass.getAnnotations();
-		for(Field field : classs.getDeclaredFields()){
+	public static void getField(List<?> list) throws IllegalArgumentException, IllegalAccessException{
+		/*Class<?> entityClass = list.get(0).getClass();
+		entityClass.getAnnotations();*/
+		List<List<Object>> objlist=new ArrayList<>();
+		List<Object> obj0 =new ArrayList<>();
+		for(Field field : list.get(0).getClass().getDeclaredFields()){
 			Exceld e=field.getAnnotation(Exceld.class);
-			System.out.println(e==null?"":e.name());
+			obj0.add(e==null?"":e.name());
 		}
-		Iterator<?> iter = list.iterator();
+		objlist.add(obj0);
+		Iterator<?> iter = list.iterator();	
 		while (iter.hasNext()) {
 			Object obj=iter.next();
+			final	List<Object> obj1=new ArrayList<>();
 			for (Field field : obj.getClass().getDeclaredFields()) {
 				field.setAccessible(true);
 				Exceld e=field.getAnnotation(Exceld.class);
 				if(e==null){
 					continue;
 				}
-					Object Value = field.get(obj);				
-					Value=Value==null?"":Value;
-					if(field.getType()==String.class){
+				Object Value = field.get(obj);				
+				Value=Value==null?"":Value;
+				obj1.add(Value);
+					/*if(field.getType()==String.class){
 						System.out.println("String"+Value);
 					}
 					if(field.getType()==Integer.class){
@@ -65,10 +71,16 @@ public class ReflexMain {
 					}
 					if(field.getType()==Date.class){
 						System.out.println("String"+(Date)Value);
-					}
+					}*/
 				
+			}
+			objlist.add(obj1);
+		}
+		for (List<Object> list2 : objlist) {
+			for (Object object : list2) {
+				System.out.println(object);
 			}
 		}
 	}
-
+	
 }
