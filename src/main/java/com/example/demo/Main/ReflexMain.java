@@ -1,5 +1,6 @@
 package com.example.demo.Main;
 
+import java.io.File;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -9,59 +10,84 @@ import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
 import org.springframework.core.io.ClassPathResource;
 
 import com.example.demo.Annotation.Exceld;
 import com.example.demo.entity.Student;
 
 public class ReflexMain {
-	
-	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
-		Student stu=new Student(1,"张三",33);
-		Student stu1=new Student(2,"李四",22);
-		Student stu2=new Student(3,null,33);
-		Student stu3=new Student(4,"孙六",24);
+
+	public static void main(String[] args) throws Exception {
+		Student stu = new Student(1, "张三", 33);
+		Student stu1 = new Student(2, "李四", 22);
+		Student stu2 = new Student(3, null, 33);
+		Student stu3 = new Student(4, "孙六", 24);
 		stu.setDate(new Date());
-		List<Student> stus=new ArrayList<Student>();
+		List<Student> stus = new ArrayList<Student>();
 		stus.add(stu);
 		stus.add(stu1);
 		stus.add(stu2);
 		stus.add(stu3);
-		getField(stus);
+		//getField(stus);
+		HSSFWorkbook work = oupt1(stus);
+		work.write(new File("d:/x.xls"));
+
 	}
-	
-	public static HSSFWorkbook oupt() throws Exception{
-		  HSSFWorkbook workbook1 = new HSSFWorkbook();// 新建一个Excel的工作空间
-          ClassPathResource cpr = new ClassPathResource("/statics/excel/fgw_kgdq.xls");
-          InputStream inputStream = cpr.getInputStream();
-          HSSFWorkbook hSSFWorkbook  = new HSSFWorkbook(inputStream);
-          HSSFSheet mbljSheet = hSSFWorkbook.getSheetAt(0);
-          workbook1 = hSSFWorkbook;// 把模板复制到新建的Excel
-          return workbook1;
+
+	public static HSSFWorkbook oupt() throws Exception {
+		HSSFWorkbook workbook1 = new HSSFWorkbook();// 新建一个Excel的工作空间
+		ClassPathResource cpr = new ClassPathResource("/statics/excel/fgw_kgdq.xls");
+		InputStream inputStream = cpr.getInputStream();
+		HSSFWorkbook hSSFWorkbook = new HSSFWorkbook(inputStream);
+		HSSFSheet mbljSheet = hSSFWorkbook.getSheetAt(0);
+		workbook1 = hSSFWorkbook;// 把模板复制到新建的Excel
+		return workbook1;
 	}
-	
-	public static void getField(List<?> list) throws IllegalArgumentException, IllegalAccessException{
+
+
+
+	public static HSSFWorkbook oupt1(List<?> list) throws Exception {
+		HSSFWorkbook workbook = new HSSFWorkbook();
+		HSSFSheet sheet = workbook.createSheet("xxs");
+		List<List<Object>> lists = getList(list);
+		for (int i = 0; i < lists.size(); i++) {
+			Row row = sheet.createRow(i);
+			for (int j = 0; j < lists.get(i).size(); j++) {
+				System.out.println(lists.get(i).get(j).toString());
+				row.createCell(j).setCellValue(lists.get(i).get(j).toString());
+			}
+
+		}
+		return workbook;
+	}
+
+
+	public static List<List<Object>> getList(List<?> list) throws IllegalArgumentException, IllegalAccessException {
 		/*Class<?> entityClass = list.get(0).getClass();
 		entityClass.getAnnotations();*/
-		List<List<Object>> objlist=new ArrayList<>();
-		List<Object> obj0 =new ArrayList<>();
-		for(Field field : list.get(0).getClass().getDeclaredFields()){
-			Exceld e=field.getAnnotation(Exceld.class);
-			obj0.add(e==null?"":e.name());
+		List<List<Object>> objlist = new ArrayList<>();
+		List<Object> obj0 = new ArrayList<>();
+		for (Field field : list.get(0).getClass().getDeclaredFields()) {
+			Exceld e = field.getAnnotation(Exceld.class);
+			if (e == null) {
+				continue;
+			}
+			obj0.add(e == null ? "" : e.name());
 		}
 		objlist.add(obj0);
-		Iterator<?> iter = list.iterator();	
+		Iterator<?> iter = list.iterator();
 		while (iter.hasNext()) {
-			Object obj=iter.next();
-			final	List<Object> obj1=new ArrayList<>();
+			Object obj = iter.next();
+			final List<Object> obj1 = new ArrayList<>();
 			for (Field field : obj.getClass().getDeclaredFields()) {
 				field.setAccessible(true);
-				Exceld e=field.getAnnotation(Exceld.class);
-				if(e==null){
+				Exceld e = field.getAnnotation(Exceld.class);
+				if (e == null) {
 					continue;
 				}
-				Object Value = field.get(obj);				
-				Value=Value==null?"":Value;
+				Object Value = field.get(obj);
+				Value = Value == null ? "" : Value;
 				obj1.add(Value);
 					/*if(field.getType()==String.class){
 						System.out.println("String"+Value);
@@ -72,15 +98,17 @@ public class ReflexMain {
 					if(field.getType()==Date.class){
 						System.out.println("String"+(Date)Value);
 					}*/
-				
+
 			}
 			objlist.add(obj1);
 		}
 		for (List<Object> list2 : objlist) {
 			for (Object object : list2) {
-				System.out.println(object);
+				//System.out.println(object);
 			}
 		}
+		return  objlist;
 	}
+
 	
 }
