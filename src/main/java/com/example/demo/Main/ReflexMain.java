@@ -1,16 +1,25 @@
 package com.example.demo.Main;
 
+import java.awt.Font;
 import java.io.File;
 import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.core.io.ClassPathResource;
 
 import com.example.demo.Annotation.Exceld;
@@ -47,12 +56,32 @@ public class ReflexMain {
 
 
 
-	public static HSSFWorkbook oupt1(List<?> list) throws Exception {
+	public static HSSFWorkbook oupt1(List<?> list) throws Exception {	
 		HSSFWorkbook workbook = new HSSFWorkbook();
+		
+		CellStyle cellStyleTitle = workbook.createCellStyle();
+		HSSFFont fontTitle = workbook.createFont();
+		fontTitle.setFontHeightInPoints((short) 18); //字体大小
+		fontTitle.setFontName("宋体"); //字体
+	    fontTitle.setBold(true);
+		cellStyleTitle.setFont(fontTitle);
+	    cellStyleTitle.setFillForegroundColor(IndexedColors.LIME.getIndex());
+		cellStyleTitle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		cellStyleTitle.setAlignment(HorizontalAlignment.CENTER); //水平布局：居中
+	    cellStyleTitle.setVerticalAlignment(VerticalAlignment.CENTER);
+		cellStyleTitle.setWrapText(true);//设置自动换行
+		
 		HSSFSheet sheet = workbook.createSheet("xxs");
 		List<List<Object>> lists = getList(list);
+		int hb=lists.get(0).size()-1;
+		CellRangeAddress region = new CellRangeAddress(0, 0, 0, hb);
+		Row rowtitle = sheet.createRow(0);
+		rowtitle.createCell(0).setCellValue("xxs");
+		rowtitle.getCell(0).setCellStyle(cellStyleTitle);
+		sheet.addMergedRegion(region);
 		for (int i = 0; i < lists.size(); i++) {
-			Row row = sheet.createRow(i);
+			int line=i+1;
+			Row row = sheet.createRow(line);
 			for (int j = 0; j < lists.get(i).size(); j++) {
 				System.out.println(lists.get(i).get(j).toString());
 				row.createCell(j).setCellValue(lists.get(i).get(j).toString());
@@ -64,8 +93,7 @@ public class ReflexMain {
 
 
 	public static List<List<Object>> getList(List<?> list) throws IllegalArgumentException, IllegalAccessException {
-		/*Class<?> entityClass = list.get(0).getClass();
-		entityClass.getAnnotations();*/
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
 		List<List<Object>> objlist = new ArrayList<>();
 		List<Object> obj0 = new ArrayList<>();
 		for (Field field : list.get(0).getClass().getDeclaredFields()) {
@@ -86,7 +114,11 @@ public class ReflexMain {
 				if (e == null) {
 					continue;
 				}
+				
 				Object Value = field.get(obj);
+				if(field.getType()==Date.class&&Value!=null){
+					Value=df.format((Date)Value);
+				}
 				Value = Value == null ? "" : Value;
 				obj1.add(Value);
 					/*if(field.getType()==String.class){
