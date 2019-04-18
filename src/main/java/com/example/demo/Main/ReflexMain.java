@@ -58,33 +58,46 @@ public class ReflexMain {
 
 	public static HSSFWorkbook oupt1(List<?> list) throws Exception {	
 		HSSFWorkbook workbook = new HSSFWorkbook();
-		
+		CellStyle cellStyle= workbook.createCellStyle();
 		CellStyle cellStyleTitle = workbook.createCellStyle();
+		
+		HSSFFont font = workbook.createFont();
 		HSSFFont fontTitle = workbook.createFont();
-		fontTitle.setFontHeightInPoints((short) 18); //字体大小
+		fontTitle.setFontHeightInPoints((short) 25); //字体大小
 		fontTitle.setFontName("宋体"); //字体
 	    fontTitle.setBold(true);
 		cellStyleTitle.setFont(fontTitle);
-	    cellStyleTitle.setFillForegroundColor(IndexedColors.LIME.getIndex());
-		cellStyleTitle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+	  //cellStyleTitle.setFillForegroundColor(IndexedColors.LIME.getIndex());
+	  //cellStyleTitle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		cellStyleTitle.setAlignment(HorizontalAlignment.CENTER); //水平布局：居中
-	    cellStyleTitle.setVerticalAlignment(VerticalAlignment.CENTER);
+	  //  cellStyleTitle.setVerticalAlignment(VerticalAlignment.CENTER);
 		cellStyleTitle.setWrapText(true);//设置自动换行
 		
-		HSSFSheet sheet = workbook.createSheet("xxs");
+		font.setFontHeightInPoints((short) 15); //字体大小
+		font.setFontName("宋体"); //字体
+		
+		cellStyle.setFont(font);
+		cellStyle.setFillForegroundColor(IndexedColors.LIME.getIndex());
+		cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		HSSFSheet sheet = workbook.createSheet("学生表");
 		List<List<Object>> lists = getList(list);
 		int hb=lists.get(0).size()-1;
 		CellRangeAddress region = new CellRangeAddress(0, 0, 0, hb);
 		Row rowtitle = sheet.createRow(0);
-		rowtitle.createCell(0).setCellValue("xxs");
+		rowtitle.createCell(0).setCellValue("学生表");
 		rowtitle.getCell(0).setCellStyle(cellStyleTitle);
 		sheet.addMergedRegion(region);
 		for (int i = 0; i < lists.size(); i++) {
 			int line=i+1;
 			Row row = sheet.createRow(line);
 			for (int j = 0; j < lists.get(i).size(); j++) {
-				System.out.println(lists.get(i).get(j).toString());
 				row.createCell(j).setCellValue(lists.get(i).get(j).toString());
+				
+				if(i==0){
+				System.out.println(lists.get(i).get(j).toString());
+				row.getCell(j).setCellStyle(cellStyle);	
+				}
+			
 			}
 
 		}
