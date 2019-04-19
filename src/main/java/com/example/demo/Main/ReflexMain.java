@@ -18,7 +18,6 @@ import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.core.io.ClassPathResource;
 
@@ -54,31 +53,34 @@ public class ReflexMain {
 		return workbook1;
 	}
 
-
-
-	public static HSSFWorkbook oupt1(List<?> list) throws Exception {	
-		HSSFWorkbook workbook = new HSSFWorkbook();
-		CellStyle cellStyle= workbook.createCellStyle();
+	public static CellStyle getCellStyleTitle(HSSFWorkbook workbook){
 		CellStyle cellStyleTitle = workbook.createCellStyle();
-		
-		HSSFFont font = workbook.createFont();
 		HSSFFont fontTitle = workbook.createFont();
 		fontTitle.setFontHeightInPoints((short) 25); //字体大小
 		fontTitle.setFontName("宋体"); //字体
 	    fontTitle.setBold(true);
 		cellStyleTitle.setFont(fontTitle);
-	  //cellStyleTitle.setFillForegroundColor(IndexedColors.LIME.getIndex());
-	  //cellStyleTitle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		cellStyleTitle.setAlignment(HorizontalAlignment.CENTER); //水平布局：居中
-	  //  cellStyleTitle.setVerticalAlignment(VerticalAlignment.CENTER);
 		cellStyleTitle.setWrapText(true);//设置自动换行
-		
+		return cellStyleTitle;
+	}
+	
+	public static CellStyle getCellStyle(HSSFWorkbook workbook){
+		CellStyle cellStyle= workbook.createCellStyle();
+		HSSFFont font = workbook.createFont();
 		font.setFontHeightInPoints((short) 15); //字体大小
 		font.setFontName("宋体"); //字体
-		
 		cellStyle.setFont(font);
 		cellStyle.setFillForegroundColor(IndexedColors.LIME.getIndex());
 		cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		return cellStyle;
+	}
+	
+
+	public static HSSFWorkbook oupt1(List<?> list) throws Exception {	
+		HSSFWorkbook workbook = new HSSFWorkbook();	
+		CellStyle cellStyleTitle=getCellStyleTitle(workbook);  //获取大标题样式
+		CellStyle cellStyle=getCellStyle(workbook);			   //获取小标题样式
 		HSSFSheet sheet = workbook.createSheet("学生表");
 		List<List<Object>> lists = getList(list);
 		int hb=lists.get(0).size()-1;
@@ -91,8 +93,7 @@ public class ReflexMain {
 			int line=i+1;
 			Row row = sheet.createRow(line);
 			for (int j = 0; j < lists.get(i).size(); j++) {
-				row.createCell(j).setCellValue(lists.get(i).get(j).toString());
-				
+				row.createCell(j).setCellValue(lists.get(i).get(j).toString());			
 				if(i==0){
 				System.out.println(lists.get(i).get(j).toString());
 				row.getCell(j).setCellStyle(cellStyle);	
@@ -134,23 +135,8 @@ public class ReflexMain {
 				}
 				Value = Value == null ? "" : Value;
 				obj1.add(Value);
-					/*if(field.getType()==String.class){
-						System.out.println("String"+Value);
-					}
-					if(field.getType()==Integer.class){
-						System.out.println("Integer"+Value);
-					}
-					if(field.getType()==Date.class){
-						System.out.println("String"+(Date)Value);
-					}*/
-
 			}
 			objlist.add(obj1);
-		}
-		for (List<Object> list2 : objlist) {
-			for (Object object : list2) {
-				//System.out.println(object);
-			}
 		}
 		return  objlist;
 	}
