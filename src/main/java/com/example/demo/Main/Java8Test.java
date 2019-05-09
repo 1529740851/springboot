@@ -1,8 +1,10 @@
 package com.example.demo.Main;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -34,14 +36,23 @@ public class Java8Test {
 
         //分组成map
         Map<String, List<Student>> groupBy = stus.stream().collect(Collectors.groupingBy(Student::getName));
+        
+        Iterator<Entry<String, List<Student>>> map=groupBy.entrySet().iterator();
+        while (map.hasNext()) {
+        Entry<String, List<Student>> map2=map.next();
+			System.out.println(map2.getKey());
+			System.out.println(map2.getValue().size());
+		}
+        
+        
         //去重
         List<Student> stus3=stus.stream().filter(distinctByKey(o -> o.getAge())).collect(Collectors.toList());
 
-
+        
 
 
         for (int i = 0; i < stus3.size(); i++) {
-            System.out.println(stus3.get(i).getName());
+          //  System.out.println(stus3.get(i).getName());
 
         }
     }
