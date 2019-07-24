@@ -1,165 +1,57 @@
-2019-02-16 09:01:45.619  INFO 16700 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on LAPTOP-B6IHFTQQ with PID 16700 (started by admin in E:\spring boot\demo-master)
-2019-02-16 09:01:45.752  INFO 16700 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
-2019-02-16 09:02:13.904  INFO 16700 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-02-16 09:02:13.905  INFO 16700 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
-2019-02-16 09:02:14.037  INFO 16700 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\Java\jdk1.8.0_121\bin;C:\Program Files\Git\cmd;C:\Program Files\TortoiseSVN\bin;C:\WINDOWS\System32\OpenSSH\;D:\华泰保险项目\idea\apache-maven-3.2.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;E:\nodejs\;;C:\Users\admin\AppData\Local\Microsoft\WindowsApps;C:\Users\admin\AppData\Roaming\npm;.]
-2019-02-16 09:02:15.664  INFO 16700 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2019-02-16 09:02:15.749  INFO 16700 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-02-16 09:02:31.142  WARN 16700 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-02-16 09:02:38.260  INFO 16700 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 55.526 seconds (JVM running for 59.429)
-2019-02-16 09:02:38.473  INFO 16700 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2019-02-16 09:02:39.967  INFO 16700 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-02-16 09:02:42.820  INFO 16700 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-02-16 09:02:42.828 DEBUG 16700 --- [http-nio-8080-exec-2] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:02:42.859 DEBUG 16700 --- [http-nio-8080-exec-2] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:02:44.246 ERROR 16700 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.executor.ExecutorException: No constructor found in com.example.demo.entity.Ii matching [java.lang.Integer, java.lang.String, java.lang.String]] with root cause
-
-org.apache.ibatis.executor.ExecutorException: No constructor found in com.example.demo.entity.Ii matching [java.lang.Integer, java.lang.String, java.lang.String]
-	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.createByConstructorSignature(DefaultResultSetHandler.java:660) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.createResultObject(DefaultResultSetHandler.java:613) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.createResultObject(DefaultResultSetHandler.java:586) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.getRowValue(DefaultResultSetHandler.java:388) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleRowValuesForSimpleResultMap(DefaultResultSetHandler.java:347) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleRowValues(DefaultResultSetHandler.java:322) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleResultSet(DefaultResultSetHandler.java:295) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleResultSets(DefaultResultSetHandler.java:192) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141) ~[mybatis-3.4.4.jar:3.4.4]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_121]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_121]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_121]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_121]
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433) ~[mybatis-spring-1.3.1.jar:1.3.1]
-	at com.sun.proxy.$Proxy81.selectList(Unknown Source) ~[na:na]
-	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230) ~[mybatis-spring-1.3.1.jar:1.3.1]
-	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:137) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:75) ~[mybatis-3.4.4.jar:3.4.4]
-	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59) ~[mybatis-3.4.4.jar:3.4.4]
-	at com.sun.proxy.$Proxy85.Select(Unknown Source) ~[na:na]
-	at com.example.demo.Service.IiService.Select(IiService.java:48) ~[classes/:na]
-	at com.example.demo.Service.IiService$$FastClassBySpringCGLIB$$a5d6c102.invoke(<generated>) ~[classes/:na]
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) ~[spring-core-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685) ~[spring-aop-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at com.example.demo.Service.IiService$$EnhancerBySpringCGLIB$$f0454a2d.Select(<generated>) ~[classes/:na]
-	at com.example.demo.Controller.FengController.mi1(FengController.java:51) ~[classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_121]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_121]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_121]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_121]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:870) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:881) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.4.RELEASE.jar:5.0.4.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) ~[tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_121]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_121]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.28.jar:8.5.28]
-	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_121]
-
-2019-02-16 09:03:35.969 DEBUG 16700 --- [http-nio-8080-exec-6] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:03:35.970 DEBUG 16700 --- [http-nio-8080-exec-6] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:03:36.810  INFO 16700 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2019-02-16 09:03:36.823  INFO 16700 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2019-02-16 09:03:37.811  INFO 16700 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on LAPTOP-B6IHFTQQ with PID 16700 (started by admin in E:\spring boot\demo-master)
-2019-02-16 09:03:37.813  INFO 16700 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
-2019-02-16 09:03:39.581  INFO 16700 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-02-16 09:03:39.585  INFO 16700 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
-2019-02-16 09:03:39.812  INFO 16700 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2019-02-16 09:03:39.821  INFO 16700 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-02-16 09:03:40.966  WARN 16700 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-02-16 09:03:41.957  INFO 16700 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 4.216 seconds (JVM running for 123.126)
-2019-02-16 09:05:52.116  INFO 16700 --- [http-nio-8080-exec-8] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2019-02-16 09:05:52.247  INFO 16700 --- [http-nio-8080-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2019-02-16 09:05:52.260  INFO 16700 --- [http-nio-8080-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2019-02-16 09:05:52.260 DEBUG 16700 --- [http-nio-8080-exec-7] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:05:52.261 DEBUG 16700 --- [http-nio-8080-exec-7] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:05:52.270 DEBUG 16700 --- [http-nio-8080-exec-7] com.example.demo.Dao.IiMapper.Select     : <==      Total: 10
-2019-02-16 09:05:54.329 DEBUG 16700 --- [http-nio-8080-exec-4] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:05:54.330 DEBUG 16700 --- [http-nio-8080-exec-4] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:05:54.337 DEBUG 16700 --- [http-nio-8080-exec-4] com.example.demo.Dao.IiMapper.Select     : <==      Total: 10
-2019-02-16 09:05:55.127 DEBUG 16700 --- [http-nio-8080-exec-1] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:05:55.128 DEBUG 16700 --- [http-nio-8080-exec-1] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:05:55.130 DEBUG 16700 --- [http-nio-8080-exec-1] com.example.demo.Dao.IiMapper.Select     : <==      Total: 10
-2019-02-16 09:05:55.711 DEBUG 16700 --- [http-nio-8080-exec-8] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:05:55.712 DEBUG 16700 --- [http-nio-8080-exec-8] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:05:55.714 DEBUG 16700 --- [http-nio-8080-exec-8] com.example.demo.Dao.IiMapper.Select     : <==      Total: 10
-2019-02-16 09:05:56.242 DEBUG 16700 --- [http-nio-8080-exec-5] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:05:56.243 DEBUG 16700 --- [http-nio-8080-exec-5] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:05:56.246 DEBUG 16700 --- [http-nio-8080-exec-5] com.example.demo.Dao.IiMapper.Select     : <==      Total: 10
-2019-02-16 09:05:56.475 DEBUG 16700 --- [http-nio-8080-exec-2] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:05:56.476 DEBUG 16700 --- [http-nio-8080-exec-2] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:05:56.478 DEBUG 16700 --- [http-nio-8080-exec-2] com.example.demo.Dao.IiMapper.Select     : <==      Total: 10
-2019-02-16 09:05:56.670 DEBUG 16700 --- [http-nio-8080-exec-9] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:05:56.671 DEBUG 16700 --- [http-nio-8080-exec-9] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:05:56.675 DEBUG 16700 --- [http-nio-8080-exec-9] com.example.demo.Dao.IiMapper.Select     : <==      Total: 10
-2019-02-16 09:05:57.997 DEBUG 16700 --- [http-nio-8080-exec-6] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:05:57.998 DEBUG 16700 --- [http-nio-8080-exec-6] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:05:58.000 DEBUG 16700 --- [http-nio-8080-exec-6] com.example.demo.Dao.IiMapper.Select     : <==      Total: 10
-2019-02-16 09:06:51.309 DEBUG 16700 --- [http-nio-8080-exec-4] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:06:51.310 DEBUG 16700 --- [http-nio-8080-exec-4] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:06:51.312 DEBUG 16700 --- [http-nio-8080-exec-4] com.example.demo.Dao.IiMapper.Select     : <==      Total: 10
-2019-02-16 09:08:14.393  INFO 16700 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2019-02-16 09:08:14.407  INFO 16700 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2019-02-16 09:08:15.207  INFO 16700 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on LAPTOP-B6IHFTQQ with PID 16700 (started by admin in E:\spring boot\demo-master)
-2019-02-16 09:08:15.208  INFO 16700 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
-2019-02-16 09:08:16.367  INFO 16700 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-02-16 09:08:16.368  INFO 16700 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
-2019-02-16 09:08:16.616  INFO 16700 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2019-02-16 09:08:16.622  INFO 16700 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-02-16 09:08:17.912  WARN 16700 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-02-16 09:08:18.254  INFO 16700 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 3.108 seconds (JVM running for 399.424)
-2019-02-16 09:08:26.831  INFO 16700 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2019-02-16 09:08:46.619  INFO 16700 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2019-02-16 09:08:46.634  INFO 16700 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2019-02-16 09:08:46.635 DEBUG 16700 --- [http-nio-8080-exec-4] com.example.demo.Dao.IiMapper.Select     : ==>  Preparing: select * from ii 
-2019-02-16 09:08:46.635 DEBUG 16700 --- [http-nio-8080-exec-4] com.example.demo.Dao.IiMapper.Select     : ==> Parameters: 
-2019-02-16 09:08:46.650 DEBUG 16700 --- [http-nio-8080-exec-4] com.example.demo.Dao.IiMapper.Select     : <==      Total: 10
-2019-02-16 09:11:28.347  WARN 16700 --- [HikariPool-3 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=1m26s288ms202µs420ns).
+2019-03-10 07:29:12.189  INFO 14636 --- [main] com.example.demo.Main.RabbitMqHelloTest  : Starting RabbitMqHelloTest on LAPTOP-B6IHFTQQ with PID 14636 (started by admin in E:\spring boot\demo-master)
+2019-03-10 07:29:12.285  INFO 14636 --- [main] com.example.demo.Main.RabbitMqHelloTest  : No active profile set, falling back to default profiles: default
+2019-03-10 07:29:24.784  INFO 14636 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-03-10 07:29:26.562  INFO 14636 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-03-10 07:29:37.467  WARN 14636 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-10 07:29:40.211  INFO 14636 --- [main] com.example.demo.Main.RabbitMqHelloTest  : Started RabbitMqHelloTest in 30.172 seconds (JVM running for 39.613)
+2019-03-10 07:29:44.661  INFO 14636 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-03-10 07:29:44.696  INFO 14636 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-03-10 07:30:00.508  INFO 1936 --- [main] com.example.demo.Main.RabbitMqHelloTest  : Starting RabbitMqHelloTest on LAPTOP-B6IHFTQQ with PID 1936 (started by admin in E:\spring boot\demo-master)
+2019-03-10 07:30:00.514  INFO 1936 --- [main] com.example.demo.Main.RabbitMqHelloTest  : No active profile set, falling back to default profiles: default
+2019-03-10 07:30:06.153  INFO 1936 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-03-10 07:30:06.648  INFO 1936 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-03-10 07:30:13.916  WARN 1936 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-10 07:30:16.656  INFO 1936 --- [main] com.example.demo.Main.RabbitMqHelloTest  : Started RabbitMqHelloTest in 17.088 seconds (JVM running for 19.877)
+2019-03-10 07:30:18.666  INFO 1936 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-03-10 07:30:18.685  INFO 1936 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-03-10 07:31:08.894  INFO 1348 --- [main] com.example.demo.Main.RedisTest          : Starting RedisTest on LAPTOP-B6IHFTQQ with PID 1348 (started by admin in E:\spring boot\demo-master)
+2019-03-10 07:31:08.902  INFO 1348 --- [main] com.example.demo.Main.RedisTest          : No active profile set, falling back to default profiles: default
+2019-03-10 07:31:14.512  INFO 1348 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-03-10 07:31:14.984  INFO 1348 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-03-10 07:31:21.526  WARN 1348 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-10 07:31:23.735  INFO 1348 --- [main] com.example.demo.Main.RedisTest          : Started RedisTest in 15.729 seconds (JVM running for 18.171)
+2019-03-10 07:31:24.508  INFO 1348 --- [main] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2019-03-10 07:31:24.511  INFO 1348 --- [main] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2019-03-10 07:31:29.869  INFO 1348 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-03-10 07:31:29.890  INFO 1348 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-03-10 07:32:41.446  INFO 8228 --- [main] com.example.demo.Main.RedisTest          : Starting RedisTest on LAPTOP-B6IHFTQQ with PID 8228 (started by admin in E:\spring boot\demo-master)
+2019-03-10 07:32:41.453  INFO 8228 --- [main] com.example.demo.Main.RedisTest          : No active profile set, falling back to default profiles: default
+2019-03-10 07:32:47.776  INFO 8228 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-03-10 07:32:48.369  INFO 8228 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-03-10 07:32:56.508  WARN 8228 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-10 07:32:59.884  INFO 8228 --- [main] com.example.demo.Main.RedisTest          : Started RedisTest in 19.64 seconds (JVM running for 22.32)
+2019-03-10 07:33:00.755  INFO 8228 --- [main] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2019-03-10 07:33:00.764  INFO 8228 --- [main] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2019-03-10 07:33:05.080  INFO 8228 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-03-10 07:33:05.095  INFO 8228 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-03-10 07:33:24.247  INFO 9448 --- [main] com.example.demo.Main.RedisTest          : Starting RedisTest on LAPTOP-B6IHFTQQ with PID 9448 (started by admin in E:\spring boot\demo-master)
+2019-03-10 07:33:24.253  INFO 9448 --- [main] com.example.demo.Main.RedisTest          : No active profile set, falling back to default profiles: default
+2019-03-10 07:33:30.105  INFO 9448 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-03-10 07:33:30.550  INFO 9448 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-03-10 07:33:35.350  WARN 9448 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-10 07:33:38.017  INFO 9448 --- [main] com.example.demo.Main.RedisTest          : Started RedisTest in 14.625 seconds (JVM running for 18.062)
+2019-03-10 07:33:38.710  INFO 9448 --- [main] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2019-03-10 07:33:38.715  INFO 9448 --- [main] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2019-03-10 07:33:48.157  INFO 9448 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-03-10 07:33:48.174  INFO 9448 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-03-10 08:41:16.078  INFO 6908 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on LAPTOP-B6IHFTQQ with PID 6908 (started by admin in E:\spring boot\demo-master)
+2019-03-10 08:41:16.124  INFO 6908 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2019-03-10 08:41:20.451  INFO 6908 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-10 08:41:20.451  INFO 6908 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
+2019-03-10 08:41:20.463  INFO 6908 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\product\11.2.0\dbhome_1\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\Java\jdk1.8.0_121\bin;C:\Program Files\Git\cmd;C:\Program Files\TortoiseSVN\bin;C:\WINDOWS\System32\OpenSSH\;D:\华泰保险项目\idea\apache-maven-3.2.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;E:\nodejs\;;C:\Users\admin\AppData\Local\Microsoft\WindowsApps;C:\Users\admin\AppData\Roaming\npm;.]
+2019-03-10 08:41:21.275  INFO 6908 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-03-10 08:41:21.285  INFO 6908 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-10 08:41:21.962  INFO 6908 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-03-10 08:41:22.530  INFO 6908 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-03-10 08:41:26.024  WARN 6908 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-10 08:41:27.903  INFO 6908 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 12.622 seconds (JVM running for 13.441)
